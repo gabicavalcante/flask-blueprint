@@ -1,0 +1,43 @@
+[default]
+DEBUG = false
+CSRF_ENABLED = true
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+TITLE = "Flask Blueprint"
+FLASK_ADMIN_NAME = "flaskblueprint Admin"
+FLASK_ADMIN_TEMPLATE_MODE = "bootstrap3"
+
+EXTENSIONS = [ 
+    "flaskblueprint.ext.database:init_app",
+    "flaskblueprint.ext.commands:init_app",
+    "flaskblueprint.ext.appearance:init_app",
+    "flaskblueprint.ext.log:init_app",
+    "flaskblueprint.ext.token:init_app", 
+    "flaskblueprint.ext.auth:init_app",
+    "flaskblueprint.ext.admin:init_app",
+    "flaskblueprint.blueprints.restapi:init_app",
+]
+
+[development]
+DEVELOPMENT = true
+DEBUG = true
+SQLALCHEMY_TRACK_MODIFICATIONS = true
+SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb" 
+
+[staging]
+DEVELOPMENT = true
+DEBUG = true
+
+[testing]
+DEBUG = true
+TESTING = true 
+SQLALCHEMY_TRACK_MODIFICATIONS = true 
+SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb_test"
+JWT_SECRET_KEY = "s3cr3t"
+
+[ci]
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:postgres@localhost:5432/fb_test"
+JWT_SECRET_KEY = "s3cr3t" 
+
+[production]
+DEBUG = false 
+SQLALCHEMY_DATABASE_URI="postgresql://flaskblueprint:flaskblueprint@localhost:5432/fb"

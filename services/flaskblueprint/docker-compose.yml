@@ -1,0 +1,43 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:10.4-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "0r4cl3_bonjour"
+      POSTGRES_DB: "fb"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  nginx:
+    build: ./services/nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - fb-api
+
+  fb-api:
+    build: .
+    depends_on:
+      - postgres
+    links:
+      - postgres:postgres
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    volumes:
+      - .:/fb
+    restart: always
+    environment:
+      FLASK_ENV: "production"
+    command: gunicorn -w 2 -b :8000 fb.app:create_app
+
+volumes:
+  postgres_data:

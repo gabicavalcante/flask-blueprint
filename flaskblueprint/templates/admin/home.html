@@ -1,0 +1,36 @@
+{% extends 'admin/master.html' %} {% block body %} {{ super() }}
+<div class="row">
+  <h1>flaskblueprint</h1>
+  <p class="lead">
+    Teste App
+  </p>
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-shopping-cart fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">{{tasks_count}}</div>
+              <div>Tasks</div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-left"
+              ><a href="{{ url_for('task.index_view') }}">Ver detalhes</a></span
+            >
+            <span class="pull-right"
+              ><i class="fa fa-arrow-circle-right"></i
+            ></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

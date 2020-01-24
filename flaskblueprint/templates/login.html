@@ -1,0 +1,57 @@
+{% extends "bootstrap/base.html" %} {% block styles %} {{ super() }}
+<link href="{{ url_for('static', filename='signin.css') }}" rel="stylesheet" />
+{% endblock %} 
+{% block title %}Login{% endblock %} 
+
+{% block messages %}
+    {{super()}} 
+    {% if form.errors %}
+        <ul class="alert alert-danger">
+        {% for field, errors in form.errors.items() %}
+            <li>{{field}} {% for error in errors %}{{ error }}{% endfor %}</li>
+        {% endfor %}
+        </ul>
+    {% endif %} 
+{% endblock %} 
+    
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <div class="account-wall">
+        <h1 class="text-center login-title"><img src="{{ url_for('static', filename='sgp-logo.png') }}"></h1>
+        <form
+          class="form-signin"
+          action="{{ url_for('simplelogin.login') }}"
+          method="post"
+        >
+          {{ form.csrf_token }}
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            name="username"
+            id="username"
+            required
+            autofocus
+          />
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            name="password"
+            id="password"
+            required
+          />
+          <input type="hidden" name="next" value="/admin/">
+          <input
+            value="Login"
+            class="btn btn-lg btn-primary btn-block"
+            type="submit"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
