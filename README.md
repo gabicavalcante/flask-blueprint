@@ -2,8 +2,8 @@
 
 An Authentication Server and TargetGroupResposeSchema Manager.
 
-![Build Status](https://github.com/gabicavalcante/flaskblueprint/workflows/CI/badge.svg)
-[![Code Coverage](https://codecov.io/gh/gabicavalcante/flaskblueprint/branch/master/graphs/badge.svg?token=BlrDDl2SJq)](https://codecov.io/gh/gabicavalcante/flaskblueprint)
+![Build Status](https://github.com/gabicavalcante/flask-blueprint/workflows/CI/badge.svg)
+[![Code Coverage](https://codecov.io/gh/gabicavalcante/flask-blueprint/branch/master/graphs/badge.svg)](https://codecov.io/gh/gabicavalcante/flaskblueprint)
 
 ### makefile
 
