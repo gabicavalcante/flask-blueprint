@@ -47,7 +47,7 @@ $ cp .env.sample .env
 add the env vars:
 
 ```
-FLASK_APP=fizzbuzz.app:create_app
+FLASK_APP=flaskblueprint.app:create_app
 SECRET_KEY="71b40786-c246-47c9-b3b1-cabe6917e0f6"
 FLASK_ENV=development
 ```
@@ -89,14 +89,14 @@ $  docker-compose up --build
 $ virtualenv -p python3 env
 $ source env/bin/activate
 # pyenv
-$ pyenv virtualenv 3.7.4 fizzbuzz
-$ pyenv activate fizzbuzz
+$ pyenv virtualenv 3.7.4 flaskblueprint
+$ pyenv activate flaskblueprint
 ```
 
 #### install requirements
 
 ```
-$ cd fizzbuzz
+$ cd flaskblueprint
 $ pip install -r requirements-dev.txt
 ```
 
