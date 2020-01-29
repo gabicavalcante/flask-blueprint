@@ -4,7 +4,7 @@
 [![Code Coverage](https://codecov.io/gh/gabicavalcante/flask-blueprint/branch/master/graphs/badge.svg?token=BlrDDl2SJq)](https://codecov.io/gh/gabicavalcante/flaskblueprint)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=gabicavalcante_flaskblueprint&metric=alert_status)](https://sonarcloud.io/dashboard?id=gabicavalcante_flaskblueprint)
 
-This is a simple flask blueprint, to help you to start a new project with a few importants features.
+This is a simple flask blueprint, to help you to start a new project with a few importants features. Thare are two models as based for your project. It's a simples example of todolist.
 
 ### makefile
 
@@ -127,7 +127,7 @@ $  docker-compose up dbtest
 To run tests with coverage
 
 ```
-$  pytest --cov=fizzbuzz
+$  pytest --cov=flaskblueprint
 ```
 
 ### references

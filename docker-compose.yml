@@ -1,14 +1,14 @@
 version: "3"
 services:
-  postgres:
+  database:
     image: postgres:10.4-alpine
     ports:
-      - "5433:5432"
+      - "5432:5432"
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD='pg'
-      - POSTGRES_DB=flaskblueprint
+      POSTGRES_DB: flaskblueprint
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     healthcheck:
@@ -20,9 +20,9 @@ services:
   flaskblueprint-api:
     image: python:3.7
     links:
-      - postgres
+      - database:database
     depends_on:
-      - postgres
+      - database
     env_file:
       - .env
     ports:
@@ -37,6 +37,8 @@ services:
     command: >
       bash -c "cd /flaskblueprint && 
       pip install -r requirements.txt && 
+      ls migrations || flask db init &&
+      flask db migrate &&
       flask db upgrade && 
       flask add-user -u admin -p admin &&
       flask run --host 0.0.0.0"

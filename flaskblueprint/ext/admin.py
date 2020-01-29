@@ -6,10 +6,7 @@ from flask_admin.model import typefmt
 from datetime import datetime
 
 from flaskblueprint.ext.database import db
-from flaskblueprint.models import (
-    Task,
-    User,
-)
+from flaskblueprint.models import User
 
 AdminIndexView._handle_view = login_required(AdminIndexView._handle_view)
 sqla.ModelView._handle_view = login_required(sqla.ModelView._handle_view)
@@ -34,19 +31,12 @@ class HomeView(AdminIndexView):
     @expose("/")
     def index(self):
         users_count = User.query.count()
-        tasks_count = Task.query.count()
-        return self.render(
-            "admin/home.html", users_count=users_count, tasks_count=tasks_count,
-        )
+        return self.render("admin/home.html", users_count=users_count,)
 
 
 class UserAdmin(AdminView):
     column_list = ["username"]
     can_edit = False
-
-
-class TaskView(AdminView):
-    page_size = 50
 
 
 def init_app(app):
@@ -55,5 +45,4 @@ def init_app(app):
     admin.template_mode = "bootstrap3"
     admin.base_template = "layout.html"
     admin.init_app(app)
-    admin.add_view(TaskView(Task, db.session))
     admin.add_view(UserAdmin(User, db.session))

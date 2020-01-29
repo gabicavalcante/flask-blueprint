@@ -52,22 +52,3 @@ class User(db.Model, SerializerMixin):
 
     def serialize(self) -> str:
         return {"id": self.id, "username": self.username}
-
-
-class Task(db.Model):
-    """ Task Model form storing details about each task"""
-
-    __tablename__ = "task"
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    description = db.Column(db.Text, nullable=False)
-    created_at = db.Column(
-        db.DateTime, default=db.func.current_timestamp(), nullable=False
-    )
-
-    def __init__(self, description: str, script: str):
-        self.description = description
-        self.script = script
-
-    def __repr__(self) -> str:
-        return "<Task (description={})>".format(self.description)

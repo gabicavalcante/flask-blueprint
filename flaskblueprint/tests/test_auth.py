@@ -10,9 +10,9 @@ def test_login(client):
     assert "token" in response.get_json()
 
     token = response.get_json()["token"]
-    response = client.get("/tasks/all", headers={"Authorization": f"Bearer {token}"})
+    response = client.get("/users/all", headers={"Authorization": f"Bearer {token}"})
 
-    assert response.status_code == HTTPStatus.OK, "Create Task fail"
+    assert response.status_code == HTTPStatus.OK, "Create User fail"
 
 
 def test_wrong_login(client):
