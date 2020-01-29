@@ -21,7 +21,7 @@ EXTENSIONS = [
 DEVELOPMENT = true
 DEBUG = true
 SQLALCHEMY_TRACK_MODIFICATIONS = true
-SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb" 
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:pg@postgres/flaskblueprint"
 
 [staging]
 DEVELOPMENT = true
@@ -31,13 +31,13 @@ DEBUG = true
 DEBUG = true
 TESTING = true 
 SQLALCHEMY_TRACK_MODIFICATIONS = true 
-SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb_test"
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:pg@postgres/flaskblueprint_test"
 JWT_SECRET_KEY = "s3cr3t"
 
 [ci]
-SQLALCHEMY_DATABASE_URI="postgresql://postgres:postgres@localhost:5432/fb_test"
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:postgres@localhost:5432/flaskblueprint_test"
 JWT_SECRET_KEY = "s3cr3t" 
 
 [production]
 DEBUG = false 
-SQLALCHEMY_DATABASE_URI="postgresql://flaskblueprint:flaskblueprint@localhost:5432/fb"
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:pg@postgres/flaskblueprint"
