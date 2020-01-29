@@ -36,11 +36,6 @@ We made a `makefile` to help you with you setup project. Check the file to see a
 
 - [sonar](https://sonarcloud.io/dashboard?id=gabicavalcante_flaskblueprint)
 
-### create a bot
-
-First of all, you need to create a telegram bot. So, if you don't know how, I'll explain, but you look this [telegram doc](https://core.telegram.org/bots) for details.
-You just need talk to BotFather (it's a telegram bot, you can open a chat with him) and follow a few simple steps. After that, you've created a bot and received your authorization token.
-
 ## setup
 
 ### create and configure .env file
@@ -84,34 +79,6 @@ You can run the app using the docker-compose file.
 ```
 $  docker-compose up --build
 ```
-
-To test, run `ngrok` to expose your local server:
-
-```
-$ ./ngrok http 5000
-ngrok by @inconshreveable
-
-Session Status                online
-Session Expires               7 hours, 59 minutes
-Version                       2.3.35
-Region                        United States (us)
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://732498a9.ngrok.io -> http://localhost:5000
-Forwarding                    https://732498a9.ngrok.io -> http://localhost:5000
-```
-
-Now, set the `BOT_HOST` var in `.secrets.toml` file, with the ngrok url (https).
-
-```
-[default]
-CSRF_SESSION_KEY = "..."
-JWT_SECRET_KEY = "..."
-TELEGRAM_BOT_TOKEN = "..."
-BOT_HOST = "https://732498a9.ngrok.io"
-```
-
-Access `127.0.0.1:5000/setwebhook` to start the webhook, and now you can use your bot. o/
-You can see all message accessing `127.0.0.1:5000/admin`, the docker-compose created a user with username `admin` and password `admin`.
 
 ### flask run
 
