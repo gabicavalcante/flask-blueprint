@@ -121,7 +121,7 @@ $  flask run
 Start the test db:
 
 ```
-$  docker-compose up dbtest
+$  docker-compose up database-test
 ```
 
 To run tests with coverage
