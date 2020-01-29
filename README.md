@@ -1,7 +1,7 @@
 # flaskblueprint
 
-![Build Status](https://github.com/gabicavalcante/flaskblueprint/workflows/CI/badge.svg)
-[![Code Coverage](https://codecov.io/gh/gabicavalcante/flaskblueprint/branch/master/graphs/badge.svg?token=BlrDDl2SJq)](https://codecov.io/gh/gabicavalcante/flaskblueprint)
+![Build Status](https://github.com/gabicavalcante/flask-blueprint/workflows/CI/badge.svg)
+[![Code Coverage](https://codecov.io/gh/gabicavalcante/flask-blueprint/branch/master/graphs/badge.svg?token=BlrDDl2SJq)](https://codecov.io/gh/gabicavalcante/flaskblueprint)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=gabicavalcante_flaskblueprint&metric=alert_status)](https://sonarcloud.io/dashboard?id=gabicavalcante_flaskblueprint)
 
 This is a simple flask blueprint, to help you to start a new project with a few importants features.
