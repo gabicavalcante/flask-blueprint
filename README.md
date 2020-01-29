@@ -19,9 +19,12 @@ We made a `makefile` to help you with you setup project. Check the file to see a
 ### libs
 
 - config: [`dynaconf`](https://dynaconf.readthedocs.io/en/latest/)
+ - _dynaconf a layered configuration system for Python applications_. It's a great libary to manager the configuration files of your Python Project.
 - admin: [`flask_admin`](https://flask-admin.readthedocs.io/en/latest/)
+ - Build an admin interface on top of yours data models. 
 - auth: [`flask_simplelogin`](https://github.com/flask-extensions/flask_simplelogin)
 - commands: [`click`](https://flask.palletsprojects.com/en/1.0.x/cli/)
+ - You can create commands with click to simplify tasks.
 - tests: [`pytest`](https://docs.pytest.org/en/latest/)
 - token: [`flask_jwt_extended`](https://flask-jwt-extended.readthedocs.io/en/stable/)
 - log: [`logging`](https://flask.palletsprojects.com/en/1.0.x/logging/)
@@ -48,7 +51,7 @@ add the env vars:
 
 ```
 FLASK_APP=flaskblueprint.app:create_app
-SECRET_KEY="71b40786-c246-47c9-b3b1-cabe6917e0f6"
+SECRET_KEY="..."
 FLASK_ENV=development
 ```
 
@@ -62,8 +65,6 @@ $ cp .secrets.toml.sample .secrets.toml
 [default]
 CSRF_SESSION_KEY = ""
 JWT_SECRET_KEY = ""
-TELEGRAM_BOT_TOKEN = ""
-BOT_HOST = "https://"
 ```
 
 ### configure the .settings.toml
