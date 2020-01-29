@@ -31,7 +31,7 @@ DEBUG = true
 DEBUG = true
 TESTING = true 
 SQLALCHEMY_TRACK_MODIFICATIONS = true 
-SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb_test"
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:password123@localhost:5431/flaskblueprint_test"
 JWT_SECRET_KEY = "s3cr3t"
 
 [ci]

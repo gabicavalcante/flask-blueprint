@@ -1,7 +1,7 @@
 version: "3"
 services:
   database:
-    image: postgres:10.4-alpine
+    image: postgres:11.5-alpine
     ports:
       - "5432:5432"
     restart: always
@@ -10,12 +10,22 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password123
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/db/
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  database-test:
+    image: postgres:11.5-alpine
+    ports:
+      - "5431:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: flaskblueprint_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
 
   flaskblueprint-api:
     image: python:3.7
@@ -35,13 +45,13 @@ services:
     environment:
       FLASK_ENV: "production"
     command: >
-      bash -c "cd /flaskblueprint && 
+      bash -c "cd /flaskblueprint &&   
       pip install -r requirements.txt && 
       ls migrations || flask db init &&
       flask db migrate &&
       flask db upgrade && 
       flask add-user -u admin -p admin &&
-      flask run --host 0.0.0.0"
+      flask run --host 0.0.0.0 --port 8000"
 
 volumes:
   postgres_data:

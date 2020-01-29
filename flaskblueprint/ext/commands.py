@@ -1,6 +1,9 @@
 import click
+import logging
 from flaskblueprint.ext.database import db
 from flaskblueprint.models import User
+
+logger = logging.getLogger(__name__)
 
 
 def create_db():
@@ -30,4 +33,7 @@ def init_app(app):
     @click.option("--password", "-p")
     def add_user(username, password):
         """Adds a new user to the database"""
-        return create_user(username, password)
+        try:
+            return create_user(username, password)
+        except Exception:
+            logger.error("User alredy exists.")

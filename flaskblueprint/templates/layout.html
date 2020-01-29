@@ -1,31 +1,22 @@
-{% import 'admin/layout.html' as layout with context -%}
-{% extends 'admin/base.html' %}
+{% import 'admin/layout.html' as layout with context -%} {% extends
+'admin/base.html' %} {% block head_tail %}
+<link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet" />
+<link href="{{ url_for('static', filename='admin.css') }}" rel="stylesheet" />
 
-{% block head_tail %}
-  <link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet"> 
-  <link href="{{ url_for('static', filename='sb-admin-2.css') }}" rel="stylesheet"> 
-
-  {{ super() }}
-{% endblock %}
-
-{% block page_body %}
+{{ super() }} {% endblock %} {% block page_body %}
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2" role="navigation">
       <ul class="nav nav-pills nav-stacked">
-	    {{ layout.menu() }}
-	    {{ layout.menu_links() }}
+        {{ layout.menu() }} {{ layout.menu_links() }}
       </ul>
     </div>
     <div class="col-md-10">
       <div id="content" class="row">
-    	  {{ layout.messages() }}
-
-	      {% set render_ctx = h.resolve_ctx() %}
-
-        {% block body %}{% endblock %}
+        {{ layout.messages() }} {% set render_ctx = h.resolve_ctx() %} {% block
+        body %}{% endblock %}
       </div>
-     </div>
+    </div>
   </div>
 </div>
 {% endblock %}
