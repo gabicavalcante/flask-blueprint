@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: flask-blueprint
+  description: flask-blueprint
+  labels:
+    system: public-websites
+  annotations:
+    example.com/service-discovery: flask-blueprint
+    backstage.io/managed-by-location: https://github.com/gabicavalcante/flask-blueprint/blob/master/catalog-info.yaml
+    github.com/project-slug: gabicavalcante/flask-blueprint
+  tags:
+    - python
+spec:
+  type: website
+  lifecycle: production
+  owner: flask-blueprint@example.com
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Artist API
+      license:
+        name: MIT
+    servers:
+      - url: http://flask-blueprint/v1
+    paths:
+      /artists:
+        get:
+          summary: List all artists
