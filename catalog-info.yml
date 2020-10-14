@@ -11,6 +11,7 @@ metadata:
     github.com/project-slug: gabicavalcante/flask-blueprint
   tags:
     - python
+    - poc
 spec:
   type: website
   lifecycle: production
