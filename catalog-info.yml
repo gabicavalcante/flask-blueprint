@@ -3,6 +3,7 @@ kind: Component
 metadata:
   name: flask-blueprint
   description: flask-blueprint
+  technical_manager: gabriela
   labels:
     system: public-websites
   annotations:
