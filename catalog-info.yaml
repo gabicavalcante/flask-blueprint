@@ -3,7 +3,11 @@ kind: Component
 metadata:
   name: flask-blueprint
   description: flask-blueprint
-  technical_manager: gabriela
+  technical_manager: 
+    name: gabriela
+    email: gabriela@mail.com
+  authentication: auth-provider
+  authorization: auth-provider
   labels:
     system: public-websites
   annotations:
