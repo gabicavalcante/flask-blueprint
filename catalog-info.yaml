@@ -10,7 +10,7 @@ metadata:
     example.com/service-discovery: flask-blueprint
     backstage.io/managed-by-location: https://github.com/gabicavalcante/flask-blueprint/blob/master/catalog-info.yaml
     github.com/project-slug: gabicavalcante/flask-blueprint
-    stone-flag: true
+    stone-flag: "test"
   tags:
     - python
     - poc
