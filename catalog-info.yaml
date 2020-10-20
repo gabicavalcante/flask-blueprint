@@ -8,6 +8,7 @@ metadata:
     email: gabriela@mail.com
   authentication: auth-provider
   authorization: auth-provider
+  pci_l1: pci-extended
   labels:
     system: public-websites
   annotations:
