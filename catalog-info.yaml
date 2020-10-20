@@ -11,6 +11,9 @@ metadata:
   pci_l1: pci-extended
   labels:
     system: public-websites
+  databases:
+    - db1
+    - db2
   annotations:
     example.com/service-discovery: flask-blueprint
     backstage.io/managed-by-location: https://github.com/gabicavalcante/flask-blueprint/blob/master/catalog-info.yaml
